@@ -5,11 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: <your_glogin> <your_email>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/14 by <username>            #+#    #+#              #
-#    Updated: 2023/08/14 by <username>           ###   ########.fr        #
+#    Created: 2023/08/14 by <username>                 #+#    #+#              #
+#    Updated: 2023/08/14 by <username>                ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# Compiler and Flags
 NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -17,46 +18,37 @@ AR = ar rcs
 RM = rm -f
 
 # Mandatory source files
-M_SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
-         ft_strlen.c ft_memset.c 
-
-
-# Bonus source files
-B_SRCS = 
+SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+       ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_atoi.c \
+       ft_strdup.c ft_strlcat.c ft_strlcpy.c ft_strncmp.c
 
 # Object files
-M_OBJS = $(M_SRCS:.c=.o)
-B_OBJS = $(B_SRCS:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
 # Header file
 HEADER = libft.h
 
-# Colors
-GREEN = \033[0;32m
-RED = \033[0;31m
-RESET = \033[0m
-
+# Default target
 all: $(NAME)
 
-$(NAME): $(M_OBJS)
-	@$(AR) $(NAME) $(M_OBJS)
-	@echo "$(GREEN)✅ $(NAME) created$(RESET)"
+# Create library
+$(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
+# Compile source files to object files
 %.o: %.c $(HEADER)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: $(M_OBJS) $(B_OBJS)
-	@$(AR) $(NAME) $(M_OBJS) $(B_OBJS)
-	@echo "$(GREEN)✅ Bonus added to $(NAME)$(RESET)"
-
+# Clean object files
 clean:
-	@$(RM) $(M_OBJS) $(B_OBJS)
-	@echo "$(RED)🧹 Object files removed$(RESET)"
+	$(RM) $(OBJS)
 
+# Full clean (objects and library)
 fclean: clean
-	@$(RM) $(NAME)
-	@echo "$(RED)🧹 $(NAME) removed$(RESET)"
+	$(RM) $(NAME)
 
+# Rebuild
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+# Phony targets
+.PHONY: all clean fclean re

@@ -15,34 +15,39 @@
 //#include <stdlib.h>
 //#include <stddef.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t			i;
-	unsigned char	*bytepointer;
+	unsigned char	*bps;
+	unsigned char	*bpd;
 
+	if (dest == NULL && src == NULL)
+		return (dest);
 	i = 0;
-	bytepointer = s;
+	bps = (unsigned char *)src;
+	bpd = (unsigned char *)dest;
 	while (i < n)
 	{
-		bytepointer[i] = c;
+		bpd[i] = bps[i];
 		i++;
 	}
-	return (s);
+	return (bpd);
 }
 
 /*
 int main(int    argc, char  **argv)
 {
-    if(argc != 4)
+    if(argc != 3)
     {
         printf("argc Error\n");
         return(0);
     }
-    char    *tstr = argv[1];
-    int tc = atoi(argv[2]);
-    size_t tn = atoi(argv[3]);
-    ft_memset(tstr, tc, tn );
-    printf("%s\n", tstr);
+
+	char tdest[50];
+    char    *tsrc = argv[1];
+    size_t tn = atoi(argv[2]);
+    ft_memcpy(tdest, tsrc, tn );
+    printf("%s\n", tdest);
     return(0);
 }
 */

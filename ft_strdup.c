@@ -11,38 +11,43 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <stdio.h>
-//#include <stdlib.h>
-//#include <stddef.h>
+/*
+#include <stdio.h>
+#include <stdlib.h>
+*/
 
-void	*ft_memset(void *s, int c, size_t n)
+char	*ft_strdup(char *src)
 {
-	size_t			i;
-	unsigned char	*bytepointer;
+	int		i;
+	int		m;
+	char	*copy;
 
 	i = 0;
-	bytepointer = s;
-	while (i < n)
-	{
-		bytepointer[i] = c;
+	m = 0;
+	if (src == 0)
+		return (0);
+	while (src[i])
 		i++;
+	copy = malloc(i * sizeof(char) + 1);
+	if (copy == 0)
+		return (0);
+	while (src[m])
+	{
+		copy[m] = src[m];
+		m++;
 	}
-	return (s);
+	copy[m] = '\0';
+	return (copy);
 }
 
 /*
-int main(int    argc, char  **argv)
+int	main (void)
 {
-    if(argc != 4)
-    {
-        printf("argc Error\n");
-        return(0);
-    }
-    char    *tstr = argv[1];
-    int tc = atoi(argv[2]);
-    size_t tn = atoi(argv[3]);
-    ft_memset(tstr, tc, tn );
-    printf("%s\n", tstr);
-    return(0);
+	char *original = "No se rick, parece falso.";
+	char *malloc_copy = ft_strdup(original);
+	
+	printf("%s", malloc_copy);
+	free(malloc_copy);
+	return (0);
 }
 */

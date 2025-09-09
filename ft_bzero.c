@@ -10,12 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 //#include <stdio.h>
-//#include <stdlib.h>
-//#include <stddef.h>
+#include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_bzero(void *s, size_t n)
 {
 	size_t			i;
 	unsigned char	*bytepointer;
@@ -24,7 +22,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	bytepointer = s;
 	while (i < n)
 	{
-		bytepointer[i] = c;
+		bytepointer[i] = '\0';
 		i++;
 	}
 	return (s);
@@ -33,15 +31,14 @@ void	*ft_memset(void *s, int c, size_t n)
 /*
 int main(int    argc, char  **argv)
 {
-    if(argc != 4)
+    if(argc != 3)
     {
         printf("argc Error\n");
         return(0);
     }
     char    *tstr = argv[1];
-    int tc = atoi(argv[2]);
-    size_t tn = atoi(argv[3]);
-    ft_memset(tstr, tc, tn );
+    size_t tn = atoi(argv[2]);
+    ft_bzero(tstr, tn);
     printf("%s\n", tstr);
     return(0);
 }

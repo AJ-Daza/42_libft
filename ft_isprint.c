@@ -1,12 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adaza-ru <adaza-ru@student.42malaga.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/04 13:07:38 by adaza-ru          #+#    #+#             */
+/*   Updated: 2025/04/04 13:07:41 by adaza-ru         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 /*
 #include<ctype.h>
 #include<stdio.h>
 #include<stdlib.h>
 */
 
-int   ft_isprint(int c)   
+int	ft_isprint(int c)
 {
-    return(c >= 32 && c<=126);
+	return (c >= 32 && c <= 126);
 }
 
 /*

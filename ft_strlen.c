@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adaza-ru <adaza-ru@student.42malaga.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/04 13:07:38 by adaza-ru          #+#    #+#             */
+/*   Updated: 2025/04/04 13:07:41 by adaza-ru         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 //#include<stdio.h>
-#include <stddef.h>
+//#include <stddef.h>
 
-size_t ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-    if (!str)
-	return 0;
+	size_t	i;
 
-    size_t i = 0;
-    while (str[i])
-        i++;
-    return(i);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
 /*
@@ -25,4 +37,3 @@ int main(int argc, char **argv)
     return(0);
 }
 */
-
