@@ -16,31 +16,31 @@
 #include <stdlib.h>
 */
 
-char	*ft_strdup(char *src)
+char	*ft_strdup(const char *src)
 {
 	int		i;
-	int		m;
 	char	*copy;
 
 	i = 0;
-	m = 0;
-	if (src == 0)
-		return (0);
 	while (src[i])
 		i++;
 	copy = malloc(i * sizeof(char) + 1);
 	if (copy == 0)
 		return (0);
-	while (src[m])
+	i = 0;
+	while (src[i])
 	{
-		copy[m] = src[m];
-		m++;
+		copy[i] = src[i];
+		i++;
 	}
-	copy[m] = '\0';
+	copy[i] = '\0';
 	return (copy);
 }
 
 /*
+if (src == 0)
+		return (0);
+
 int	main (void)
 {
 	char *original = "No se rick, parece falso.";
