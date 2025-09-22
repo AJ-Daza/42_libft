@@ -11,10 +11,56 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include<stdio.h>
+//#include<stdlib.h>
 
-int	ft_tolower(int c)
+char	*ft_strchr(const char *s, int c)
 {
-	if (c > 'a' && c < 'z')
-		return (c + 32);
-	return (c);
+	int				i;
+	unsigned char	x;
+
+	x = (unsigned char)c;
+	i = 0;
+	if (*s == '\0' && c != 0)
+		return (NULL);
+	while (s[i] != '\0')
+	{
+		if (s[i] == x)
+			return ((char *)&s[i]);
+		i++;
+	}
+	if (x == '\0')
+		return ((char *)&s[i]);
+	return (NULL);
 }
+
+/*
+int main(int argc, char **argv)
+{
+    const char *n;
+    int x;
+    char *result;
+
+    if (argc != 3)
+    {
+        printf("Usage: %s <string> <character_code>\n", argv[0]);
+        return (1);
+    }
+    
+    n = argv[1];
+    x = atoi(argv[2]); // Convert argument to integer
+    
+    result = ft_strchr(n, x);
+    
+    if (result == NULL)
+    {
+        printf("Character not found in string\n");
+    }
+    else
+    {
+        printf("Found: %s\n", result);
+    }
+    
+    return (0);
+}
+*/

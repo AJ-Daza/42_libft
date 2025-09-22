@@ -1,8 +1,3 @@
-• toupper
-• tolower
-• strchr
-• strrchr
-• memchr
 • memcmp
 • strnstr
 

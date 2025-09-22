@@ -37,12 +37,15 @@ int				ft_tolower(int c);
 
 /*Return char*/
 char			*ft_strdup(const char *src);
+char			*ft_strchr(const char *s, int c);
+char			*ft_strrchr(const char *s, int c);
 
 /*Return void*/
 void			*ft_memset(void *str, int c, size_t n);
 void			*ft_bzero(void *s, size_t n);
 void			*ft_memcpy(void *dest, const void *src, size_t n);
 void			*ft_memmove(void *dest, const void *src, size_t n);
+void			*ft_memchr(const void *s, int c, size_t n);
 
 /*Return size_t*/
 size_t			ft_strlen(const char *s);
