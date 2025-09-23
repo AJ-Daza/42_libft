@@ -1,4 +1,3 @@
-• memcmp
 • strnstr
 
 • calloc
