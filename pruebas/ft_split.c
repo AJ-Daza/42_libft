@@ -11,7 +11,96 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
+static void	copy_string(char const *s, char *fsbranch, size_t i, char c)
+{
+	size_t	j;
+	size_t	n;
+	size_t	b;
+	
+	j = 0;
+	n = 0;
+	b = 0;
+	while(s[n] && j != i)
+	{
+		if(s[n] == c)
+			j++;
+		n++;
+	}
+	while(s[n] != c && s[n] != '\0')
+	{
+		fsbranch[b] = s[n];
+		b++;
+		n++;
+	}
+	fsbranch[b] = '\0';	
+}
+
+static size_t	length(char const *s, char c)
+{
+	size_t	len;
+	
+	len = 0;
+	while (s[len] != c && s[len] != '\0')
+		len++;
+	return (len);
+}
+
+
+static size_t	how_many_cs(char const *s, char c)
+{
+	size_t	hmchar;
+	size_t	len;
+	
+	hmchar = 0;
+	len = 0;
+	while (s[len] != '\0')
+	{
+		if (s[len] == c)
+			hmchar++;
+		len++;
+	}
+	return (hmchar);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**fs;
+	size_t	l;
+	size_t	i;
+		
+	l = how_many_cs(s, c);
+	fs = malloc((l + 1) * sizeof(char *) + 1);
+	if (fs == NULL)
+		return (NULL);
+	fs[l + 1] = NULL;
+	i = 0;
+	while(fs[i] != NULL)
+	{
+		l = length(&s[i], c);
+		fs[i] = malloc(l + 1);
+		if (fs[i] == NULL)
+			return (NULL);
+		copy_string(s, fs[i], i, c);
+		i++;
+	}
+	return (fs);
+}
+
+int	main(void)
+{
+	char *s = "Almendrero de Doraemon que florece en la serie de Doraemon";
+	char	**ns = ft_split(s, 'r');
+	int i = 0;
+	
+	while(ns[i] != NULL)
+	{
+		printf("%s\n",ns[i]); 
+		i++;	
+	} 
+	return (0);
+}
 
 
 /*
@@ -20,7 +109,7 @@ Function name: ft_split
 Prototype: char **ft_split(char const *s, char c);
 
 Parameters: s:The string to be split.
-c: The delimiter character.
+	    c: The delimiter character.
 
 Return value: The array of new strings resulting from the split.
 NULL if the allocation fails.
