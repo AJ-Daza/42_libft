@@ -24,7 +24,8 @@
 /*      FUNCTIONS         */
 /**************************/
 
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_itoa(int n);
+//char	*ft_itoa(int n);
+void	*ft_calloc(size_t nmemb, size_t size);
+char	**ft_split(char const *s, char c);
 
 #endif

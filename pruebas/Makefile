@@ -18,7 +18,7 @@ AR = ar rcs
 RM = rm -f
 
 # Mandatory source files
-SRCS = ft_strjoin.c ft_itoa.c
+SRCS = ft_split.c ft_calloc.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)

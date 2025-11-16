@@ -11,10 +11,11 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <stdio.h>
 
-static int	count(int x)
+static long	count(long x)
 {
-	int	i;
+	long	i;
 
 	i = 0;
 	if (x < 0)
@@ -30,27 +31,41 @@ static int	count(int x)
 	return (i);
 }
 
+static char	*zero(void)
+{
+	char	*ns;
+
+	ns = malloc(2);
+	if (!ns)
+		return (NULL);
+	ns[0] = '0';
+	ns[1] = '\0';
+	return (ns);
+}
+
 char	*ft_itoa(int n)
 {
 	char	*s;
 	int		c;
+	long	num;
 
-	c = count(n);
+	if (n == 0)
+		return (zero());
+	num = n;
+	c = count(num);
 	s = malloc(c + 1);
 	if (s == NULL)
 		return (NULL);
-	if (n < 0)
+	if (num < 0)
 	{
 		s[0] = '-';
-		n = -n;
+		num = -num;
 	}
 	s[c] = '\0';
-	c--;
-	while (n > 0)
+	while (num > 0)
 	{
-		s[c] = n % 10;
-		n = n / 10;
-		c--;
+		s[--c] = (num % 10) + '0';
+		num = num / 10;
 	}
 	return (s);
 }
@@ -75,7 +90,7 @@ int	main(int argc, char **argv)
 			printf("-");
 			i++;
 		}
-		printf("%d", s[i]);
+		printf("%c", s[i]);
 		i++;
 	}
 	printf("\n");

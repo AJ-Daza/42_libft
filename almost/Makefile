@@ -18,7 +18,7 @@ AR = ar rcs
 RM = rm -f
 
 # Mandatory source files
-SRCS = (wildcard *.c)
+SRCS = $(wildcard *.c)
 
 # Object files
 OBJS = $(SRCS:.c=.o)
