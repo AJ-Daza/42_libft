@@ -3,30 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaza-ru <adaza-ru@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: adaza-ru <adaza-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 19:18:34 by adaza-ru          #+#    #+#             */
-/*   Updated: 2025/04/01 19:18:36 by adaza-ru         ###   ########.fr       */
+/*   Updated: 2025/11/24 17:14:29 by adaza-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*
 #include<stdio.h>
-#include<bsd/string.h>
-*/
+#include <bsd/string.h>
 
-/*
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
 		i++;
 	return (i);
 }
-*/
+
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
@@ -36,8 +33,8 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	unsigned int	fl;
 
 	i = 0;
-	ld = ft_strlen(dest);
-	ls = ft_strlen(src);
+	ld = (unsigned int)ft_strlen(dest);
+	ls = (unsigned int)ft_strlen(src);
 	if (size <= ld)
 		fl = size + ls;
 	else
@@ -52,20 +49,15 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	return (fl);
 }
 
-/*
+
 int main (void)
 {
 	char a[10] = "Hello, ";
 	char b[]="World!";
 	
-	printf(" %u", ft_strlcat(a, b , 7));
+	printf(" FT: %u", ft_strlcat(a, b , 1));
 	printf(" %s\n", a);
-		
-	char c[10] = "Hello, ";
-	char d[]="World!";
 	
-	printf(" %zu", strlcat(c, d , 7));
-	printf(" %s\n", c);
 	
 }
-*/
+

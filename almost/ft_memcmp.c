@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaza-ru <adaza-ru@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: adaza-ru <adaza-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/01 13:24:43 by adaza-ru          #+#    #+#             */
-/*   Updated: 2025/04/01 13:24:45 by adaza-ru         ###   ########.fr       */
+/*   Created: 2025/11/24 16:19:44 by adaza-ru          #+#    #+#             */
+/*   Updated: 2025/11/24 16:19:44 by adaza-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <stdio.h>
+#include <stdio.h>
+#include <string.h>
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
@@ -30,5 +31,12 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 			return (p1[i] - p2[i]);
 		i++;
 	}
+	return (0);
+}
+
+int	main(void)
+{
+	
+
 	return (0);
 }

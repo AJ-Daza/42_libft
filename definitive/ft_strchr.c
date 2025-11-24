@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaza-ru <adaza-ru@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: adaza-ru <adaza-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/02 15:53:06 by adaza-ru          #+#    #+#             */
-/*   Updated: 2025/04/02 15:53:08 by adaza-ru         ###   ########.fr       */
+/*   Created: 2025/11/24 16:13:56 by adaza-ru          #+#    #+#             */
+/*   Updated: 2025/11/24 16:18:08 by adaza-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 //#include<stdio.h>
-//#include<stdlib.h>
+//#include<string.h>
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -35,32 +35,21 @@ char	*ft_strchr(const char *s, int c)
 }
 
 /*
-int main(int argc, char **argv)
+int main(void)
 {
-    const char *n;
-    int x;
-    char *result;
+    char	*a= "123";
 
-    if (argc != 3)
-    {
-        printf("Usage: %s <string> <character_code>\n", argv[0]);
-        return (1);
-    }
-    
-    n = argv[1];
-    x = atoi(argv[2]); // Convert argument to integer
-    
-    result = ft_strchr(n, x);
-    
-    if (result == NULL)
-    {
-        printf("Character not found in string\n");
-    }
-    else
-    {
-        printf("Found: %s\n", result);
-    }
-    
-    return (0);
+	printf ("strchr(123, 4: %p\n", strchr(a, '4'));
+	printf ("FT(123, 4):      %p\n\n", ft_strchr(a, '4'));
+
+	printf ("strchr(123, 2): %p\n", strchr(a, '2'));
+	printf ("FT(123, 2):      %p\n\n", ft_strchr(a, '2'));
+
+	a = "";
+	
+	printf ("strchr( , 2): %p\n", strchr(a, '2'));
+	printf ("FT( , 2):      %p\n\n", ft_strchr(a, '2'));
+
+	return (0);
 }
 */

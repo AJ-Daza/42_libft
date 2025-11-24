@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaza-ru <adaza-ru@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: adaza-ru <adaza-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 13:07:38 by adaza-ru          #+#    #+#             */
-/*   Updated: 2025/04/04 13:07:41 by adaza-ru         ###   ########.fr       */
+/*   Created: 2025/11/17 13:20:54 by adaza-ru          #+#    #+#             */
+/*   Updated: 2025/11/24 14:23:27 by adaza-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
 #include "libft.h"
+#include <stdio.h>
+#include <strings.h>
 
 void	*ft_bzero(void *s, size_t n)
 {
@@ -29,17 +30,30 @@ void	*ft_bzero(void *s, size_t n)
 }
 
 /*
-int main(int    argc, char  **argv)
+int main(void)
 {
-    if(argc != 3)
-    {
-        printf("argc Error\n");
-        return(0);
-    }
-    char    *tstr = argv[1];
-    size_t tn = atoi(argv[2]);
-    ft_bzero(tstr, tn);
-    printf("%s\n", tstr);
+    char	*s = "Quiero morirme";
+	size_t	n = 6;
+	size_t	l = 14;
+	size_t	i = -1;
+
+	printf("Original b zero: ");
+	s = bzero(&s[0], n);
+	while(++i < l)
+	{
+		printf("%c", s[i]);
+		printf("\n");
+	}
+
+	s = "Puto bzero";
+	printf("FT b zero:       ");
+	s = ft_bzero(&s[0], n);
+	i = -1;
+	while(++i < l)
+	{
+		printf("%c", s[i]);
+		printf("\n");
+	}
     return(0);
-}
+}  
 */

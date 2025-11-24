@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaza-ru <adaza-ru@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: adaza-ru <adaza-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/02 15:53:06 by adaza-ru          #+#    #+#             */
-/*   Updated: 2025/04/02 15:53:08 by adaza-ru         ###   ########.fr       */
+/*   Created: 2025/11/24 13:35:30 by adaza-ru          #+#    #+#             */
+/*   Updated: 2025/11/24 14:49:45 by adaza-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 //#include<stdio.h>
-//#include<stdlib.h>
+//#include<string.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
@@ -23,7 +23,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	t = (unsigned char *)s;
 	x = (unsigned char)c;
 	i = 0;
-	while (i < n)
+	while (i < n && t[i])
 	{
 		if (t[i] == x)
 			return ((void *)&t[i]);
@@ -33,32 +33,21 @@ void	*ft_memchr(const void *s, int c, size_t n)
 }
 
 /*
-int main(int argc, char **argv)
+int main(void)
 {
-    const char *n;
-    int x;
-    char *result;
+    char	*a= "123";
 
-    if (argc != 3)
-    {
-        printf("Usage: %s <string> <character_code>\n", argv[0]);
-        return (1);
-    }
-    
-    n = argv[1];
-    x = atoi(argv[2]); // Convert argument to integer
-    
-    result = ft_strchr(n, x);
-    
-    if (result == NULL)
-    {
-        printf("Character not found in string\n");
-    }
-    else
-    {
-        printf("Found: %s\n", result);
-    }
-    
-    return (0);
+	printf ("memchr(123, 2, 0): %p\n", memchr(a, '2', 0));
+	printf ("FT(123, 2, 0):      %p\n\n", ft_memchr(a, '2', 0));
+
+	printf ("memchr(123, 2, 3): %p\n", memchr(a, '2', 3));
+	printf ("FT(123, 2, 3):      %p\n\n", ft_memchr(a, '2', 3));
+
+	a = "";
+	
+	printf ("memchr( , 2, 1): %p\n", memchr(a, '2', 1));
+	printf ("FT( , 2, 1):      %p\n\n", ft_memchr(a, '2', 1));
+
+	return (0);
 }
 */

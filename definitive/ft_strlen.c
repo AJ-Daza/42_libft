@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaza-ru <adaza-ru@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: adaza-ru <adaza-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 13:07:38 by adaza-ru          #+#    #+#             */
-/*   Updated: 2025/04/04 13:07:41 by adaza-ru         ###   ########.fr       */
+/*   Updated: 2025/11/24 14:58:05 by adaza-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-#include<ctype.h>
-#include<stdio.h>
-*/
-
-int	ft_isalpha(int c)
+size_t	ft_strlen(const char *str)
 {
-	return ((c >= 65 && c <= 90) || (c >= 97 && c <= 122));
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
 /*
-int     main(int    argc, char  **argv)
+int main(int argc, char **argv)
 {
-    int c = 0;
-
-    if(argc !=2)
+    if(argc != 2)
     {
         printf("argc Error\n");
         return(0);
     }
 
-    c = atoi(argv[1]);
-    printf("isalpha :%d\n", isalpha(c));
-    printf("ft_isalpha :%d\n", ft_isalpha(c));
+    printf("%ld\n", ft_strlen(argv[1]));
     return(0);
 }
 */

@@ -20,12 +20,17 @@
 # include <unistd.h>
 # include <stddef.h>
 
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+
 /**************************/
 /*      FUNCTIONS         */
 /**************************/
 
-//char	*ft_itoa(int n);
+//char	**ft_split(char const *s, char c)
 void	*ft_calloc(size_t nmemb, size_t size);
-char	**ft_split(char const *s, char c);
 
 #endif
