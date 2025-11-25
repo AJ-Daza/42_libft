@@ -22,7 +22,7 @@ static void	copy_string(char const *s, char *fsbranch, size_t i, char c)
 	j = 0;
 	n = 0;
 	b = 0;
-	while(s[n] != '\0' && s[n] == c)
+	while (s[n] != '\0' && s[n] == c)
 		n++;
 	while (s[n] != '\0' && j <= i)
 	{
@@ -47,7 +47,7 @@ static size_t	length(char const *s, size_t i, char c)
 	j = 0;
 	l = 0;
 	n = 0;
-	while(s[j] != '\0' && n < i)
+	while (s[j] != '\0' && n < i)
 	{
 		while (s[j] != '\0' && s[j] == c)
 			j++;
@@ -70,7 +70,7 @@ static size_t	how_many_strings(char const *s, char c)
 
 	hms = 0;
 	j = 0;
-	while(s[j] != '\0')
+	while (s[j] != '\0')
 	{
 		while (s[j] != '\0' && s[j] == c)
 			j++;
@@ -113,8 +113,8 @@ char	**ft_split(char const *s, char c)
 /*
 int	main(void)
 {
-	char *s = "rrrAlmendrerro de Dorraemon que florece en la serie de Doraemonrrr";
-	char x = 'r';
+	char *s = "^^^1^^2a,^^^^3^^^^--h^^^^";
+	char x = '^';
 	char	**ns = ft_split(s, x);
 	int i = 0;
 	

@@ -1,14 +1,9 @@
-FUNCTION         TESTS                RESULT
-ft_calloc        ✓                    OK
-ft_split         ✗✓✗✓✓✗               KO
-
-Abort: A  Bus error: B  Segmentation fault: S  Timeout: T
 
 More information in: /home/ajdaza/francinette/temp/libft/war-machine/deepthought
 
 Errors in split: /home/ajdaza/francinette/temp/libft/war-machine/tests/Part2_functions/ft_split
-Test 1:
-    if (!(tabstr = ft_split("          ", ' ')))
+Test 2:
+    if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')))
         ft_print_result("NULL");
     else
     {
@@ -19,11 +14,21 @@ Test 1:
             i++;
         }
     }
-Expected (cat -e test01.output):
+Expected (cat -e test02.output):
+lorem$
+ipsum$
+dolor$
+sit$
+amet,$
+consectetur$
+adipiscing$
+elit.$
+Sed$
+non$
+risus.$
+Suspendisse$
 
-Your result (cat -e user_output_test01):
-$
-$
+Your result (cat -e user_output_test02):
 
 Test 3:
     if (!(tabstr = ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ')))
@@ -46,16 +51,6 @@ amet,$
 consectetur$
 adipiscing$
 elit.$
-Sed$
-non$
-risus.$
-Suspendisse$
-
-Your result (cat -e user_output_test03):
-$
-
-Test 6:
-    if (!(tabstr = ft_split("", 'z')))
 ...
 
 File too large. To see full report open: /home/ajdaza/francinette/temp/libft/war-machine/errors.log
@@ -63,109 +58,27 @@ File too large. To see full report open: /home/ajdaza/francinette/temp/libft/war
 ✔ Compiling tests: libftTester (https://github.com/Tripouille/libftTester)
 ℹ Testing:
 ft_calloc       : 1.OK 2.MOK
-ft_split        : 1.MKO 2.KO 3.MKO 4.KO 5.MKO 6.KO 7.OK 8.OK 9.KO 10.KO 11.MOK 12.OK 13.OK 14.MKO 15.KO 16.MOK 17.OK 18.OK 19.MKO 20.OK 21.KO 22.MKO 23.KO 24.KO 25.MKO 26.KO 27.MKO 28.KO 29.MKO 30.KO 31.MKO 32.KO 33.MKO 34.KO 35.MOK 36.KO 37.MOK 38.KO 39.MKO 40.KO 41.MKO 42.KO
+ft_split        : 1.MOK 2.OK 3.MKO 4.OK 5.MKO 6.OK 7.OK 8.OK 9.OK 10.OK 11.MOK 12.OK 13.OK 14.MOK 15.OK 16.MOK 17.OK 18.OK 19.MOK 20.OK 21.OK 22.MOK 23.OK 24.OK 25.MOK 26.OK 27.MKO 28.OK 29.MOK 30.OK 31.MKO 32.OK 33.MKO 34.OK 35.MKO 36.OK 37.MKO 38.OK 39.MKO 40.OK 41.MKO 42.OK
 
 MKO: test about your malloc size (this shouldn't be tested by moulinette)
 
 Errors in:
 
 For /home/ajdaza/francinette/tests/libft/Tripouille/tests/ft_split_test.cpp:
-MKO 26:         /* 1 */ mcheck(tab, sizeof(char *) * 3);
-KO  28:         /* 2 */ check(!strcmp(tab[0], "tripouille"));
 MKO 29:         /* 3 */ mcheck(tab[0], strlen("tripouille") + 1);
-KO  31:         /* 4 */ check(!strcmp(tab[1], "42"));
 MKO 32:         /* 5 */ mcheck(tab[1], strlen("42") + 1);
-KO  34:         /* 6 */ check(tab[2] == NULL);
-KO  43:         /* 9 */ check(tab[0] == NULL);
-KO  48:         /* 10 */ check(tab[0] == NULL); delete invalidReadCheck;
-MKO 58:         /* 14 */ mcheck(tab, sizeof(char *) * 1);
-KO  59:         /* 15 */ check(tab[0] == NULL);
-MKO 72:         /* 19 */ mcheck(tab, sizeof(char *) * 2);
-KO  74:         /* 21 */ check(tab[1] == NULL);
-MKO 79:         /* 22 */ mcheck(tab, sizeof(char *) * 2);
-KO  80:         /* 23 */ check(!strcmp(tab[0], "Tripouille"));
-KO  81:         /* 24 */ check(tab[1] == NULL);
-MKO 86:         /* 25 */ mcheck(tab, sizeof(char *) * 2);
-KO  87:         /* 26 */ check(!strcmp(tab[0], "Tripouille"));
 MKO 88:         /* 27 */ mcheck(tab[0], strlen("Tripouille") + 1);
-KO  89:         /* 28 */ check(tab[1] == NULL);
-MKO 95:         /* 29 */ mcheck(tab, sizeof(char *) * 7);
-KO  96:         /* 30 */ check(!strcmp(tab[0], "1"));
 MKO 97:         /* 31 */ mcheck(tab[0], strlen("1") + 1);
-KO  99:         /* 32 */ check(!strcmp(tab[1], "2"));
 MKO 100:        /* 33 */ mcheck(tab[1], strlen("2") + 1);
-KO  102:        /* 34 */ check(!strcmp(tab[2], "3"));
-KO  105:        /* 36 */ check(!strcmp(tab[3], "4"));
-KO  108:        /* 38 */ check(!strcmp(tab[4], "5"));
+MKO 103:        /* 35 */ mcheck(tab[2], strlen("3") + 1);
+MKO 106:        /* 37 */ mcheck(tab[3], strlen("4") + 1);
 MKO 109:        /* 39 */ mcheck(tab[4], strlen("5") + 1);
-KO  111:        /* 40 */ check(!strcmp(tab[5], "42"));
 MKO 112:        /* 41 */ mcheck(tab[5], strlen("42") + 1);
-KO  114:        /* 42 */ check(tab[6] == NULL);
 
 ✔ Compiling tests: libft-unit-test (https://github.com/alelievr/libft-unit-test)
 ℹ Testing:
 ft_calloc       : [OK] [OK] [OK] [OK] [OK]
-ft_split        : [FAILED] [OK] [FAILED] [OK] [OK] [OK] [FAILED] [CRASH] [OK] [FAILED]
-[fail]: your split does not work with basic input
-[fail]: your split does not work with one word
-[fail]: your split will segfault in case --> *str="\0aa\0bbb" c='\0'
-[crash]: your split does not work with basic input
-[fail]: your split does not work with basic input
-
-
-[fail]: your split does not work with basic input
- Test code:
-        char *string = "      split       this for   me  !       ";
-        char **expected = ((char*[6]){"split", "this", "for", "me", "!", ((void*)0)});
-        char **result = ft_split(string, ' ');
-
-        split_cmp_array(expected, result);
-
- Diffs:
-        split: |split|
-     ft_split: ||
-
- [fail]: your split does not work with one word
- Test code:
-        char *s = "                  olol";
-        char **result = ft_split(s, ' ');
-
-        split_cmp_array(expected, result);
-
- Diffs:
-        split: |olol|
-     ft_split: ||
-
- [fail]: your split will segfault in case --> *str="\0aa\0bbb" c='\0'
- Test code:
-        char **expected = ft_split("\0aa\0bbb", '\0');
-
-        for (int i = 0; expected[i]; i++)
-        {
-                if (expected[i] != ((void*)0))
-                        exit(TEST_FAILED);
-        }
-        exit(TEST_SUCCESS);
-
- Diffs:
-
-
- [crash]: your split does not work with basic input
- Test code:
-        char *s = "split  ||this|for|me|||||!|";
-        int i = 0;
-        char **result = ft_split(s, '|');
-
-        while (result[i])
-        {
-                if (strcmp(result[i], *expected))
-                {
-                        exit(TEST_FAILED);
-                }
-                free(result[i]);
-...
-
-File too large. To see full report open: /home/ajdaza/francinette/temp/libft/alelievr/result.log
+ft_split        : [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK]
 
 ✔ Compiling tests: fsoares (my own)
 ℹ Testing:
@@ -175,58 +88,24 @@ ft_split        : KO
 Errors found:
 For ft_split, in /home/ajdaza/francinette/tests/libft/fsoares/test_split.c:
 
-
-Error in test 2: ft_split("xxxxxxxxhello!", 120:'x'):
-Expected: ["hello!",  NULL]
-Returned: ["", "hello!",  NULL]
+Error in test 1: ft_split("hello!", 32:' '): not enough memory allocated, needed: 7,
+reserved: 1
+Error in test 1: ft_split("hello!", 32:' '):
+Memory leak: 0x631327c7c8f0 - 4096 bytes
+You failed to free the memory allocated at:
 Error in test 2: ft_split("xxxxxxxxhello!", 120:'x'): not enough memory allocated, needed:
 7, reserved: 1
-Error in test 2: ft_split("xxxxxxxxhello!", 120:'x'):
-Memory leak: 0x55a1a756a8f0 - 1 bytes
-You failed to free the memory allocated at:
-Memory leak: 0x55a1a756a910 - 4096 bytes
-You failed to free the memory allocated at:
-
-Error in test 3: ft_split("hello!zzzzzzzz", 122:'z'):
-Expected: ["hello!",  NULL]
-Returned: ["hello!", "",  NULL]
-Error in test 3: ft_split("hello!zzzzzzzz", 122:'z'):
-Memory leak: 0x55a1a756b920 - 1 bytes
-You failed to free the memory allocated at:
-
-Error in test 4: ft_split("\t\t\t\thello!\t\t\t\t", 9:'\t'):
-Expected: ["hello!",  NULL]
-Returned: ["", "hello!", "",  NULL]
+Error in test 3: ft_split("hello!zzzzzzzz", 122:'z'): not enough memory allocated, needed:
+7, reserved: 1
 Error in test 4: ft_split("\t\t\t\thello!\t\t\t\t", 9:'\t'): not enough memory allocated,
 needed: 7, reserved: 1
-Error in test 4: ft_split("\t\t\t\thello!\t\t\t\t", 9:'\t'):
-Memory leak: 0x55a1a756a8d0 - 1 bytes
-You failed to free the memory allocated at:
-Memory leak: 0x55a1a756b970 - 1 bytes
-You failed to free the memory allocated at:
-
-Error in test 5: ft_split("", 97:'a'):
-Expected: [ NULL]
-Returned: ["",  NULL]
-Error in test 5: ft_split("", 97:'a'):
-Memory leak: 0x55a1a756b9b0 - 1 bytes
-You failed to free the memory allocated at:
-
-Error in test 6: ft_split("ggggggggggg", 103:'g'):
-Expected: [ NULL]
-Returned: ["", "",  NULL]
-Error in test 6: ft_split("ggggggggggg", 103:'g'):
-Memory leak: 0x55a1a756b9d0 - 1 bytes
-You failed to free the memory allocated at:
-Memory leak: 0x55a1a756b9f0 - 1 bytes
-You failed to free the memory allocated at:
-
-Error in test 7: ft_split("^^^1^^2a,^^^^3^^^^--h^^^^", 94:'^'):
-Expected: ["1", "2a,", "3", "--h",  NULL]
-Returned: ["", "1", "2a,", "3", "--h", "",  NULL]
 Error in test 7: ft_split("^^^1^^2a,^^^^3^^^^--h^^^^", 94:'^'): not enough memory allocated,
 needed: 2, reserved: 1
-...
-
-File too large. To see full report open:
-/home/ajdaza/francinette/temp/libft/fsoares/error.log
+Error in test 7: ft_split("^^^1^^2a,^^^^3^^^^--h^^^^", 94:'^'): not enough memory allocated,
+needed: 4, reserved: 1
+Error in test 7: ft_split("^^^1^^2a,^^^^3^^^^--h^^^^", 94:'^'): not enough memory allocated,
+needed: 2, reserved: 1
+Error in test 7: ft_split("^^^1^^2a,^^^^3^^^^--h^^^^", 94:'^'): not enough memory allocated,
+needed: 4, reserved: 1
+Error in test 8: ft_split("nonempty", 0:'\0'): not enough memory allocated, needed: 9,
+reserved: 1

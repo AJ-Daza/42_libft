@@ -30,7 +30,7 @@ typedef struct s_list
 /*      FUNCTIONS         */
 /**************************/
 
-//char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c);
 void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif
