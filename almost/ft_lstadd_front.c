@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adaza-ru <adaza-ru@student.42malga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 19:22:46 by adaza-ru          #+#    #+#             */
-/*   Updated: 2025/11/20 19:22:46 by adaza-ru         ###   ########.fr       */
+/*   Created: 2025/11/20 19:25:27 by adaza-ru          #+#    #+#             */
+/*   Updated: 2025/11/20 19:25:27 by adaza-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+void ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (!lst || !new)
+		return;
+	new->next = lst[0];
+	lst[0] = new;
+}
+
 /*
-t_list *ft_lstnew(void *content);
+void ft_lstadd_front(t_list **lst, t_list *new);
 
-Parameters: content: The content to create the node with.
+Parameters: lst: The address of a pointer to the first link of a list
+new: The address of a pointer to the node to be added to the list.
 
-Return value: The new node
+Return value: None
 
-External functs: malloc
+External functs: None
 
-Description: Allocates (with malloc(3)) and returns a new node.
-The member variable ’content’ is initialized with the value 
-of the parameter ’content’. The variable ’next’ is initialized
-to NULL.
+Description: Adds the node ’new’ at the beginning of the list.
 */

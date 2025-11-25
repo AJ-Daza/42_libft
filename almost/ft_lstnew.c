@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adaza-ru <adaza-ru@student.42malga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 19:25:27 by adaza-ru          #+#    #+#             */
-/*   Updated: 2025/11/20 19:25:27 by adaza-ru         ###   ########.fr       */
+/*   Created: 2025/11/20 19:22:46 by adaza-ru          #+#    #+#             */
+/*   Updated: 2025/11/20 19:22:46 by adaza-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-void ft_lstadd_front(t_list **lst, t_list *new);
+t_list *ft_lstnew(void *content)
+{
+	t_list	*new;
 
-Parameters: lst: a list.The address of a pointer to the first link of a list
-new: The address of a pointer to the node to be added to the list.
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return(NULL);
+	new.content = content;
+	new.next = NULL;
+	return (new);
+}
+
+/*
+t_list *ft_lstnew(void *content);
+
+Parameters: content: The content to create the node with.
 
 Return value: The new node
 

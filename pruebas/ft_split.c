@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaza-ru <adaza-ru@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: adaza-ru <adaza-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 15:53:06 by adaza-ru          #+#    #+#             */
-/*   Updated: 2025/04/02 15:53:08 by adaza-ru         ###   ########.fr       */
+/*   Updated: 2025/11/25 15:47:36 by adaza-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static void	copy_string(char const *s, char *fsbranch, size_t i, char c)
 	j = 0;
 	n = 0;
 	b = 0;
+	while(s[n] != '\0' && s[n] == c)
+		n++;
 	while (s[n] != '\0' && j <= i)
 	{
 		if (j == i && s[n] != c)
@@ -38,38 +40,46 @@ static void	copy_string(char const *s, char *fsbranch, size_t i, char c)
 
 static size_t	length(char const *s, size_t i, char c)
 {
-	size_t	len;
 	size_t	j;
+	size_t	l;
 	size_t	n;
 
-	n = 0;
 	j = 0;
-	len = 0;
-	while (s[n] != '\0' && j <= i)
+	l = 0;
+	n = 0;
+	while(s[j] != '\0' && n < i)
 	{
-		if (j == i && s[n] != c)
-			len++;
-		else if (s[n] == c)
+		while (s[j] != '\0' && s[j] == c)
 			j++;
-		n++;
+		if (s[j] != '\0' && s[j] != c)
+			n++;
+		while (s[j] != '\0' && s[j] != c)
+		{
+			if (n == (i + 1))
+				l++;
+			j++;
+		}
 	}
-	return (len);
+	return (l);
 }
 
-static size_t	how_many_cs(char const *s, char c)
+static size_t	how_many_strings(char const *s, char c)
 {
-	size_t	hmchar;
-	size_t	len;
+	size_t	hms;
+	size_t	j;
 
-	hmchar = 0;
-	len = 0;
-	while (s[len] != '\0')
+	hms = 0;
+	j = 0;
+	while(s[j] != '\0')
 	{
-		if (s[len] == c && s[len + 1] != c)
-			hmchar++;
-		len++;
+		while (s[j] != '\0' && s[j] == c)
+			j++;
+		if (s[j] != '\0' && s[j] != c)
+			hms++;
+		while (s[j] != '\0' && s[j] != c)
+			j++;
 	}
-	return (hmchar);
+	return (hms);
 }
 
 char	**ft_split(char const *s, char c)
@@ -78,13 +88,13 @@ char	**ft_split(char const *s, char c)
 	size_t	l;
 	size_t	i;
 
-	l = how_many_cs(s, c);
-	fs = ft_calloc((l + 2), sizeof(char *));
+	l = how_many_strings(s, c);
+	fs = ft_calloc((l + 1), sizeof(char *));
 	if (fs == NULL)
 		return (NULL);
-	fs[l + 1] = NULL;
+	fs[l] = NULL;
 	i = 0;
-	while (i < l + 1)
+	while (i < l)
 	{
 		fs[i] = ft_calloc(length(s, i, c) + 1, 1);
 		if (fs[i] == NULL)
@@ -103,12 +113,12 @@ char	**ft_split(char const *s, char c)
 /*
 int	main(void)
 {
-	char *s = "Almendrerro de Dorraemon que florece en la serie de Doraemon";
+	char *s = "rrrAlmendrerro de Dorraemon que florece en la serie de Doraemonrrr";
 	char x = 'r';
 	char	**ns = ft_split(s, x);
 	int i = 0;
 	
-	printf("Number of delimiters: %li\n",how_many_cs(s, x));
+	printf("Number of strings: %zu\n",how_many_strings(s, x));
 	while(ns[i] != NULL)
 	{
 		printf("%s\n", ns[i]); 
