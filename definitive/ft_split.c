@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adaza-ru <adaza-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/02 15:53:06 by adaza-ru          #+#    #+#             */
-/*   Updated: 2025/11/25 15:47:36 by adaza-ru         ###   ########.fr       */
+/*   Created: 2025/11/26 14:03:50 by adaza-ru          #+#    #+#             */
+/*   Updated: 2025/11/26 14:03:54 by adaza-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,29 @@
 static void	copy_string(char const *s, char *fsbranch, size_t i, char c)
 {
 	size_t	j;
+	size_t	l;
 	size_t	n;
-	size_t	b;
 
 	j = 0;
+	l = 0;
 	n = 0;
-	b = 0;
-	while (s[n] != '\0' && s[n] == c)
-		n++;
-	while (s[n] != '\0' && j <= i)
+	while (s[j] != '\0' && n <= (i + 1))
 	{
-		if (j == i && s[n] != c)
-		{
-			fsbranch[b] = s[n];
-			b++;
-		}
-		else if (s[n] == c && s[n + 1] != c)
+		while (s[j] != '\0' && s[j] == c)
 			j++;
-		n++;
+		if (s[j] != '\0' && s[j] != c)
+			n++;
+		while (s[j] != '\0' && s[j] != c)
+		{
+			if (n == (i + 1))
+			{
+				fsbranch[l] = s[j];
+				l++;
+			}
+			j++;
+		}
 	}
-	fsbranch[b] = '\0';
+	fsbranch[l] = '\0';
 }
 
 static size_t	length(char const *s, size_t i, char c)
@@ -47,7 +50,7 @@ static size_t	length(char const *s, size_t i, char c)
 	j = 0;
 	l = 0;
 	n = 0;
-	while (s[j] != '\0' && n < i)
+	while (s[j] != '\0' && n <= (i + 1))
 	{
 		while (s[j] != '\0' && s[j] == c)
 			j++;
@@ -113,8 +116,8 @@ char	**ft_split(char const *s, char c)
 /*
 int	main(void)
 {
-	char *s = "^^^1^^2a,^^^^3^^^^--h^^^^";
-	char x = '^';
+	char *s = "hola quetaaal como estas";
+	char x = ' ';
 	char	**ns = ft_split(s, x);
 	int i = 0;
 	
@@ -123,7 +126,14 @@ int	main(void)
 	{
 		printf("%s\n", ns[i]); 
 		i++;	
-	} 
+	}
+	i = 0;
+	while(ns[i])
+	{
+		free(ns[i]);
+		i++;
+	}
+	free(ns);
 	return (0);
 }
 */

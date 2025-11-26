@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adaza-ru <adaza-ru@student.42malga.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 19:53:06 by adaza-ru          #+#    #+#             */
-/*   Updated: 2025/11/20 19:53:06 by adaza-ru         ###   ########.fr       */
+/*   Created: 2025/11/20 19:25:27 by adaza-ru          #+#    #+#             */
+/*   Updated: 2025/11/20 19:25:27 by adaza-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-void ft_lstclear(t_list **lst, void (*del)(void
-*));
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (!lst || !new)
+		return ;
+	new->next = lst[0];
+	lst[0] = new;
+}
 
-Parameters: lst: The address of a pointer to a node.
-del: The address of the function used to delete the content of the node.
+/*
+void ft_lstadd_front(t_list **lst, t_list *new);
+
+Parameters: lst: The address of a pointer to the first link of a list
+new: The address of a pointer to the node to be added to the list.
 
 Return value: None
 
-External functs: free
+External functs: None
 
-Description: Deletes and frees the given node and every successor
-of that node, using the function ’del’ and free(3). Finally,
-the pointer to the list must be set to NULL.
+Description: Adds the node ’new’ at the beginning of the list.
 */

@@ -21,10 +21,11 @@ AR			= ar rcs
 RM			= rm -f
 
 # Source files - Part 1: Libc functions
-SRCS		= ft_calloc.c ft_split.c
+SRCS		= 
 
 # Bonus source files
-BONUS_SRCS	= 
+BONUS_SRCS	= ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstnew_bonus.c\
+	ft_lstsize_bonus.c ft_lstlast_bonus.c
 
 # Object files
 OBJS		= $(SRCS:.c=.o)
