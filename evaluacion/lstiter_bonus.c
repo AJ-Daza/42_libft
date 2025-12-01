@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaza-ru <adaza-ru@student.42malga.com>    +#+  +:+       +#+        */
+/*   By: adaza-ru <adaza-ru@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 19:29:54 by adaza-ru          #+#    #+#             */
-/*   Updated: 2025/11/20 19:29:54 by adaza-ru         ###   ########.fr       */
+/*   Created: 2025/11/28 22:52:18 by adaza-ru          #+#    #+#             */
+/*   Updated: 2025/11/28 22:52:18 by adaza-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list	*ptr;
 
-	if (lst == NULL)
-		return (NULL);
+	if (!lst || !f)
+		return ;
 	ptr = lst;
-	while (ptr->next != NULL)
+	while (ptr != NULL)
+	{
+		f(ptr->content);
 		ptr = ptr->next;
-	return (ptr);
+	}
 }
-/*
-t_list *ft_lstlast(t_list *lst);
-
-Parameters: lst: The beginning of the list.
-
-Return value: Last node of the list
-
-External functs: None
-
-Description: Returns the last node of the list.
-*/

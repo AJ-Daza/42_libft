@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaza-ru <adaza-ru@student.42malga.com>    +#+  +:+       +#+        */
+/*   By: adaza-ru <adaza-ru@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 19:25:27 by adaza-ru          #+#    #+#             */
-/*   Updated: 2025/11/20 19:25:27 by adaza-ru         ###   ########.fr       */
+/*   Created: 2025/11/28 21:08:06 by adaza-ru          #+#    #+#             */
+/*   Updated: 2025/11/28 21:08:06 by adaza-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,3 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new->next = lst[0];
 	lst[0] = new;
 }
-
-/*
-void ft_lstadd_front(t_list **lst, t_list *new);
-
-Parameters: lst: The address of a pointer to the first link of a list
-new: The address of a pointer to the node to be added to the list.
-
-Return value: None
-
-External functs: None
-
-Description: Adds the node ’new’ at the beginning of the list.
-*/
