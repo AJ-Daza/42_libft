@@ -1,6 +1,6 @@
 Libft - My First C Library
 
-Hey there! 👋 This is my libft project, which is my very first attempt at building a C library from scratch. As part of my learning journey at 42 School, I'm creating my own version of standard C functions and some extra utilities that'll be useful throughout my programming journey.
+Hey there! 👋 This is my libft project, which is my very first attempt at building a C library from scratch and the first project in the 42 common core curriculum. As part of my learning journey at 42 Málaga, I'm creating my own version of standard C functions and some extra utilities that'll be useful throughout my programming journey.
 
 
 🧠 Learning Notes
