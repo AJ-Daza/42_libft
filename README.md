@@ -4,6 +4,7 @@ Hey there! 👋 This is my libft project, which is my very first attempt at buil
 
 
 🧠 Learning Notes
+
 This project was my first deep dive into:
 
     Memory allocation and management (malloc, free)
@@ -18,6 +19,7 @@ This project was my first deep dive into:
 
 
 📚 What's Inside?
+
 This library has two main parts:
 Part 1: Standard C Functions
 
