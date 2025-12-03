@@ -21,9 +21,8 @@ This project was my first deep dive into:
 📚 What's Inside?
 
 This library has two main parts:
-Part 1: Standard C Functions
 
-I've recreated basic functions from the C standard library (but with ft_ prefix instead):
+Part 1: Standard C Functions. I've recreated basic functions from the C standard library (but with ft_ prefix instead):
 
     Character checks: ft_isalpha, ft_isdigit, ft_isalnum, etc.
 
@@ -33,9 +32,7 @@ I've recreated basic functions from the C standard library (but with ft_ prefix 
 
     Conversions: ft_atoi, ft_toupper, ft_tolower
 
-Part 2: Additional Functions
-
-Some extra useful utilities:
+Part 2: Additional Functions. Some extra useful utilities:
 
     ft_substr - Extract parts of strings
 
@@ -47,9 +44,7 @@ Some extra useful utilities:
 
     ft_putchar_fd, ft_putstr_fd, etc. - Output functions with file descriptors
 
-Bonus: Linked Lists! 🎯
-
-I added functions to work with linked lists:
+Bonus: Linked Lists! I added functions to work with linked lists:
 
     Create, add, and remove nodes
 
